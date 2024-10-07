@@ -3,12 +3,16 @@ import NextAuth from "next-auth";
 import { auth } from "../_lib/auth";
 import Link from "next/link";
 import SearchInput from "./SearchInput";
-import { getAssignment, getAssignmentDetails } from "../_lib/dataService";
+import {
+  getAllAssignment,
+  getAssignment,
+  getAssignmentDetails,
+} from "../_lib/dataService";
 import SignOut from "./SignOut";
 
 export const Navigator = async () => {
   const session = await auth();
-  const arr = await getAssignment(session?.user.userId);
+  const arr = await getAllAssignment();
 
   return (
     <nav className="flex bg-gradient-to-r from-blue-500 to-purple-500 drop-shadow-lg h-16 p-3 justify-between items-center gap-7">

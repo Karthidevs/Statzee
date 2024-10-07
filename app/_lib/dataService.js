@@ -57,3 +57,13 @@ export const createImage = async (image, code) => {
   }
   return data;
 };
+
+export const getAllAssignment = async () => {
+  const { data, error } = await supabase.from("userData").select("*");
+
+  if (error) {
+    throw new Error("Unable to retrive data");
+  }
+
+  return data;
+};

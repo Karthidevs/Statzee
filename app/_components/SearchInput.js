@@ -9,7 +9,6 @@ export default function SearchInput({ data }) {
   const da = data.filter((item) =>
     item.code.toLowerCase().startsWith(searchquery)
   );
-
   const pathname = usePathname();
 
   useEffect(() => {
